@@ -18,9 +18,7 @@ DerivedData/
 *.dSYM
 
 # Secrets
-Config.xcconfig
 *.xcconfig
-!Config.xcconfig.example
 
 # CocoaPods
 Pods/
