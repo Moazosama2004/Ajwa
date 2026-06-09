@@ -1,0 +1,53 @@
+# Xcode
+*.xcuserstate
+*.xcuserdatad/
+xcuserdata/
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Secrets
+Config.xcconfig
+*.xcconfig
+!Config.xcconfig.example
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# SPM
+.build/
+*.resolved
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+
+# Build
+build/
+*.o
+*.a
+*.dylib
+
+# Playground
+timeline.xctimeline
+playground.xcworkspace

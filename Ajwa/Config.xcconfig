@@ -1,0 +1,12 @@
+//
+//  Config.xcconfig
+//  Ajwa
+//
+//  Created by Moaz on 08/06/2026.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+WEATHER_API_KEY = your_api_key_here
+BASE_URL = https://api.example.com
