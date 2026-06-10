@@ -8,28 +8,38 @@
 import SwiftUI
 
 struct SearchView: View {
-    @State private var searchQuery : String = ""
     @Environment(\.dismiss) private var dismiss
+    
+    @StateObject private var viewModel = SearchViewModel(
+    repo: SearchRepositiory(searchRemoteDataSource: SearchRemoteDataSource(weatherService: WeatherApiService()
+              )
+    )
+    )
     var body: some View {
         ZStack {
             Color(.appBackground)
                 .ignoresSafeArea()
             
             VStack {
-                CustomSearchBar(text: $searchQuery)
+                CustomSearchBar(text: $viewModel.searchQuery)
                     .padding()
                     .shadow(color: Color.black.opacity(0.03), radius: 8, x: 0, y: 4)
-                
+
                 Spacer()
                 ScrollView {
                     VStack {
-                        ForEach(1..<10) { _ in
-                            CityWeatherSearchView()
+                        if viewModel.isLoading {
+                            ProgressView()
+                        }
+                        
+                        ForEach(viewModel.results) { city in
+                            CityWeatherSearchView(city: city)
                         }
                     }
                     .padding()
-                }
-                .scrollIndicators(.hidden)
+            }  .scrollIndicators(.hidden)
+              
+              
             }
             
         }
@@ -51,7 +61,7 @@ struct SearchView: View {
                 }
             }
         }
-        
+
     }
 }
 

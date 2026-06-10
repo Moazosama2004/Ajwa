@@ -8,45 +8,42 @@
 import SwiftUI
 
 struct CityWeatherSearchView: View {
+    let city: WeatherSearchResult
+    
     var body: some View {
         HStack {
-            HStack {
-                Image(systemName: "apple.logo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 24 , height: 24)
-                    .padding(.leading ,8)
+            
+            VStack(alignment: .leading, spacing: 4) {
                 
-                VStack(alignment: .leading) {
-                    Text("Kreuzberg")
-                        .font(.system(size: 16, weight: .regular))
-                        .foregroundStyle(.primary)
-                    
-                  
-                    
-                    Text("Berlin, Germany")
-                        .font(.system(size: 16, weight: .regular))
-                        .foregroundStyle(.secondary)
-
-                }
+                Text(city.name)
+                    .font(.system(size: 16, weight: .semibold))
+                    .foregroundStyle(.primary)
                 
+                Text("\(city.region), \(city.country)")
+                    .font(.system(size: 14, weight: .regular))
+                    .foregroundStyle(.secondary)
             }
+            
             Spacer()
-            Image(systemName: "apple.logo")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 40 , height: 40)
+            
+            VStack(alignment: .trailing) {
+                Text("🌤️")
+                    .font(.system(size: 28))
+                
+                Text("\(city.lat), \(city.lon)")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
         }
         .padding()
         .background {
-            RoundedRectangle(cornerRadius: 20.0)
-                .fill(LinearGradient(colors: [.white , .white], startPoint: .bottomLeading, endPoint: .topTrailing))
-           
-            
+            RoundedRectangle(cornerRadius: 16)
+                .fill(Color.white.opacity(0.9))
         }
+        .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 4)
     }
 }
 
-#Preview {
-    CityWeatherSearchView()
-}
+//#Preview {
+//    CityWeatherSearchView()
+//}
