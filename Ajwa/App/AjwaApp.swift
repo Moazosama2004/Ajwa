@@ -12,7 +12,7 @@ import SwiftData
 struct AjwaApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }
