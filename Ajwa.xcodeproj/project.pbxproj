@@ -18,6 +18,8 @@
 		41BA50A92FDA0364001A4EB2 /* SearchRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA50A82FDA0364001A4EB2 /* SearchRemoteDataSource.swift */; };
 		41BA50AD2FDA03F9001A4EB2 /* SearchRepositiory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA50AC2FDA03F9001A4EB2 /* SearchRepositiory.swift */; };
 		41BA50AF2FDA042A001A4EB2 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA50AE2FDA042A001A4EB2 /* SearchViewModel.swift */; };
+		41BA50B22FDA24A1001A4EB2 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA50B12FDA24A1001A4EB2 /* DetailsView.swift */; };
+		41BA50B42FDA2879001A4EB2 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA50B32FDA2879001A4EB2 /* DetailsViewModel.swift */; };
 		41BC71232FD884820065F621 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC71222FD884820065F621 /* HomeView.swift */; };
 		41BC71262FD89ED10065F621 /* HourlyForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC71252FD89ED10065F621 /* HourlyForecastView.swift */; };
 		41BC71282FD8A3610065F621 /* PreciptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC71272FD8A3610065F621 /* PreciptionView.swift */; };
@@ -63,6 +65,8 @@
 		41BA50A82FDA0364001A4EB2 /* SearchRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRemoteDataSource.swift; sourceTree = "<group>"; };
 		41BA50AC2FDA03F9001A4EB2 /* SearchRepositiory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositiory.swift; sourceTree = "<group>"; };
 		41BA50AE2FDA042A001A4EB2 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		41BA50B12FDA24A1001A4EB2 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		41BA50B32FDA2879001A4EB2 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		41BC71222FD884820065F621 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		41BC71252FD89ED10065F621 /* HourlyForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastView.swift; sourceTree = "<group>"; };
 		41BC71272FD8A3610065F621 /* PreciptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreciptionView.swift; sourceTree = "<group>"; };
@@ -236,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				41BC715E2FD8EB8E0065F621 /* HomeViewModel.swift */,
+				41BA50B32FDA2879001A4EB2 /* DetailsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 			children = (
 				41BC71242FD89DD00065F621 /* Components */,
 				41BC71222FD884820065F621 /* HomeView.swift */,
+				41BA50B12FDA24A1001A4EB2 /* DetailsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -459,6 +465,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41BC71462FD8D24C0065F621 /* CustomSearchBar.swift in Sources */,
+				41BA50B22FDA24A1001A4EB2 /* DetailsView.swift in Sources */,
 				41B7A6112FD782290010302B /* AjwaApp.swift in Sources */,
 				41BC712C2FD8A8DF0065F621 /* VisibilityView.swift in Sources */,
 				41BC71482FD8D5040065F621 /* CityWeatherSearchView.swift in Sources */,
@@ -474,6 +481,7 @@
 				41BC71672FD8F08E0065F621 /* Astro.swift in Sources */,
 				41BC71612FD8F0590065F621 /* Forecast.swift in Sources */,
 				41BC71512FD8E4420065F621 /* WeatherCondition.swift in Sources */,
+				41BA50B42FDA2879001A4EB2 /* DetailsViewModel.swift in Sources */,
 				41BC71302FD8AD380065F621 /* UVIndexView.swift in Sources */,
 				41BC71692FD8F0A10065F621 /* HourWeather.swift in Sources */,
 				41BC71542FD8E48D0065F621 /* WeatherApiService.swift in Sources */,

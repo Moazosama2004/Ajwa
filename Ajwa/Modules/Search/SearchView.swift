@@ -33,7 +33,13 @@ struct SearchView: View {
                         }
                         
                         ForEach(viewModel.results) { city in
-                            CityWeatherSearchView(city: city)
+                            NavigationLink {
+                                DetailsView(city: city)
+                            } label: {
+                                CityWeatherSearchView(city: city)
+                            }
+
+                          
                         }
                     }
                     .padding()
