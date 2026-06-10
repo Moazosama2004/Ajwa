@@ -14,6 +14,10 @@
 		41BA509F2FD9CB19001A4EB2 /* PerciptationItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA509E2FD9CB19001A4EB2 /* PerciptationItemView.swift */; };
 		41BA50A12FD9DD3F001A4EB2 /* WeatherAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA50A02FD9DD3F001A4EB2 /* WeatherAsset.swift */; };
 		41BA50A32FD9E188001A4EB2 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA50A22FD9E188001A4EB2 /* LocationService.swift */; };
+		41BA50A72FDA0257001A4EB2 /* WeatherSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA50A62FDA0257001A4EB2 /* WeatherSearchResult.swift */; };
+		41BA50A92FDA0364001A4EB2 /* SearchRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA50A82FDA0364001A4EB2 /* SearchRemoteDataSource.swift */; };
+		41BA50AD2FDA03F9001A4EB2 /* SearchRepositiory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA50AC2FDA03F9001A4EB2 /* SearchRepositiory.swift */; };
+		41BA50AF2FDA042A001A4EB2 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA50AE2FDA042A001A4EB2 /* SearchViewModel.swift */; };
 		41BC71232FD884820065F621 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC71222FD884820065F621 /* HomeView.swift */; };
 		41BC71262FD89ED10065F621 /* HourlyForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC71252FD89ED10065F621 /* HourlyForecastView.swift */; };
 		41BC71282FD8A3610065F621 /* PreciptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC71272FD8A3610065F621 /* PreciptionView.swift */; };
@@ -55,6 +59,10 @@
 		41BA509E2FD9CB19001A4EB2 /* PerciptationItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerciptationItemView.swift; sourceTree = "<group>"; };
 		41BA50A02FD9DD3F001A4EB2 /* WeatherAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAsset.swift; sourceTree = "<group>"; };
 		41BA50A22FD9E188001A4EB2 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		41BA50A62FDA0257001A4EB2 /* WeatherSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSearchResult.swift; sourceTree = "<group>"; };
+		41BA50A82FDA0364001A4EB2 /* SearchRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRemoteDataSource.swift; sourceTree = "<group>"; };
+		41BA50AC2FDA03F9001A4EB2 /* SearchRepositiory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositiory.swift; sourceTree = "<group>"; };
+		41BA50AE2FDA042A001A4EB2 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		41BC71222FD884820065F621 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		41BC71252FD89ED10065F621 /* HourlyForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastView.swift; sourceTree = "<group>"; };
 		41BC71272FD8A3610065F621 /* PreciptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreciptionView.swift; sourceTree = "<group>"; };
@@ -137,6 +145,22 @@
 				41B7A6192FD7822B0010302B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		41BA50AA2FDA0367001A4EB2 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				41BA50A82FDA0364001A4EB2 /* SearchRemoteDataSource.swift */,
+			);
+			name = DataSources;
+			sourceTree = "<group>";
+		};
+		41BA50AB2FDA03DE001A4EB2 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				41BA50AC2FDA03F9001A4EB2 /* SearchRepositiory.swift */,
+			);
+			name = Repository;
 			sourceTree = "<group>";
 		};
 		41BC71182FD87F500065F621 /* App */ = {
@@ -271,6 +295,8 @@
 		41BC713E2FD8D0F90065F621 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				41BA50AB2FDA03DE001A4EB2 /* Repository */,
+				41BA50AA2FDA0367001A4EB2 /* DataSources */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -287,6 +313,7 @@
 		41BC71402FD8D10A0065F621 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				41BA50AE2FDA042A001A4EB2 /* SearchViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -321,6 +348,7 @@
 				41BC71642FD8F0800065F621 /* DaySummary.swift */,
 				41BC71662FD8F08E0065F621 /* Astro.swift */,
 				41BC71682FD8F0A10065F621 /* HourWeather.swift */,
+				41BA50A62FDA0257001A4EB2 /* WeatherSearchResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -434,9 +462,12 @@
 				41B7A6112FD782290010302B /* AjwaApp.swift in Sources */,
 				41BC712C2FD8A8DF0065F621 /* VisibilityView.swift in Sources */,
 				41BC71482FD8D5040065F621 /* CityWeatherSearchView.swift in Sources */,
+				41BA50AF2FDA042A001A4EB2 /* SearchViewModel.swift in Sources */,
 				41BA50A12FD9DD3F001A4EB2 /* WeatherAsset.swift in Sources */,
 				41BC714F2FD8E42B0065F621 /* CurrentWeather.swift in Sources */,
+				41BA50A92FDA0364001A4EB2 /* SearchRemoteDataSource.swift in Sources */,
 				41BC71342FD8BD550065F621 /* DaysForecastView.swift in Sources */,
+				41BA50A72FDA0257001A4EB2 /* WeatherSearchResult.swift in Sources */,
 				41BC715D2FD8EB400065F621 /* HomeRepository.swift in Sources */,
 				41BC714D2FD8E3820065F621 /* Location.swift in Sources */,
 				41BC715A2FD8EA880065F621 /* HomeRemoteDataSource.swift in Sources */,
@@ -453,6 +484,7 @@
 				41BC712A2FD8A6070065F621 /* ConditionsView.swift in Sources */,
 				41BC71232FD884820065F621 /* HomeView.swift in Sources */,
 				41BC71432FD8D1260065F621 /* SearchView.swift in Sources */,
+				41BA50AD2FDA03F9001A4EB2 /* SearchRepositiory.swift in Sources */,
 				41BC71652FD8F0800065F621 /* DaySummary.swift in Sources */,
 				41BC713C2FD8CD480065F621 /* MainWeatherView.swift in Sources */,
 				41BC71262FD89ED10065F621 /* HourlyForecastView.swift in Sources */,

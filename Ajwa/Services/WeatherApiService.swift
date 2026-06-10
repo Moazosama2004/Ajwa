@@ -26,6 +26,23 @@ class WeatherApiService {
         let response = try JSONDecoder().decode(WeatherResponse.self, from: data)
         return response
     }
+    
+    func search(for text: String) async throws -> [WeatherSearchResult] {
+        let query = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+
+        let endpoint = WeatherSearchEndPoint.search(query: query)
+        
+        guard let url = endpoint.url else {
+            throw URLError(.badURL)
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = endpoint.method.uppercased()
+
+        let (data, _) = try await URLSession.shared.data(for: request)
+
+        let response = try JSONDecoder().decode([WeatherSearchResult].self, from: data)
+        return response
+    }
 }
 
 protocol EndPoint {
@@ -66,6 +83,31 @@ enum ForeCastWeatherEndPoint: EndPoint {
                 URLQueryItem(name: "days", value: "\(days)"),
                 URLQueryItem(name: "aqi", value: aqi ? "yes" : "no"),
                 URLQueryItem(name: "alerts", value: alerts ? "yes" : "no")
+            ]
+        }
+    }
+}
+
+enum WeatherSearchEndPoint: EndPoint {
+    case search(query: String)
+
+    var baseUrl: String { "https://api.weatherapi.com/v1" }
+
+    var path: String {
+        switch self {
+        case .search:
+            return "/search.json"
+        }
+    }
+
+    var method: String { "GET" }
+
+    var queryItems: [URLQueryItem] {
+        switch self {
+        case .search(let query):
+            return [
+                URLQueryItem(name: "key", value: Config.apikey),
+                URLQueryItem(name: "q", value: query)
             ]
         }
     }
