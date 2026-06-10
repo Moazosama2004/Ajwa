@@ -16,3 +16,10 @@ struct WeatherSearchResult: Codable, Identifiable {
     let lon: Double
     let url: String
 }
+
+
+extension WeatherSearchResult {
+    static var mock: WeatherSearchResult {
+        WeatherSearchResult(id: 1, name: "Cairo", region: "Egypt", country: "Egypt", lat: 1.053, lon: -10.026, url: "dddd")
+    }
+}
