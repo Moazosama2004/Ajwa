@@ -1,4 +1,21 @@
-# AJWA
+<p align="center">
+  <span style="border-radius: 24px; overflow: hidden; display: inline-block;">
+    <img src="https://github.com/user-attachments/assets/6e30a687-d037-4b9d-952d-a09e8488851a" alt="Ajwa App Logo" width="180" style="display: block;"/>
+  </span>
+</p>
+
+<h1 align="center">AJWA</h1>
+
+<p align="center">
+  A modern, SwiftUI weather client — clean, contextual, and location-aware. Built to deliver quick, glanceable forecasts with an adaptive UI that reflects time of day.
+</p>
+
+<p align="center">
+  <a href=""><img src="https://img.shields.io/badge/build-passing-success.svg" alt="Build Status"></a>
+  <a href=""><img src="https://img.shields.io/badge/platform-iOS-blue.svg" alt="Platform"></a>
+</p>
+
+---
 A modern, SwiftUI weather client — clean, contextual, and location-aware. Built to deliver quick, glanceable forecasts with an adaptive UI that reflects time of day.
 
 [![Build Status](https://img.shields.io/badge/build-unknown-lightgrey.svg)]() [![Platform](https://img.shields.io/badge/platform-iOS-blue.svg)]()
@@ -65,8 +82,8 @@ A modern, SwiftUI weather client — clean, contextual, and location-aware. Buil
 
 ### Clone the repository
 ```bash
-git clone https://github.com/<your-org>/WeatherCast-App.git
-cd WeatherCast-App
+git clone https://github.com/Moazosama2004/Ajwa.git
+cd Ajwa-App
 ```
 
 ### Open the project
