@@ -42,37 +42,37 @@ struct DaysForecastView: View {
             ForEach(days.indices, id: \.self) { index in
                 let forecastDay = days[index]
 
-                HStack(spacing: 12) {
+                NavigationLink {
+                    HourlyView(day: forecastDay)
+                } label: {
+                    HStack(spacing: 12) {
 
-                    AsyncImage(
-                        url: URL(string: "https:\(forecastDay.day.condition.icon)")
-                    ) { image in
-                        image
-                            .resizable()
-                            .scaledToFit()
-                    } placeholder: {
-                        ProgressView()
-                    }
-                    .frame(width: 32, height: 32)
+                        Image(WeatherAsset.from(
+                            code: forecastDay.day.condition.code,
+                            isDay: true
+                        ).rawValue)
+                        .frame(width: 32, height: 32)
 
-                    Text(
-                        dayName(
-                            from: forecastDay.date,
-                            isToday: index == 0
+                        Text(
+                            dayName(
+                                from: forecastDay.date,
+                                isToday: index == 0
+                            )
                         )
-                    )
-                    .font(.system(size: 16, weight: .medium))
+                        .font(.system(size: 16, weight: .medium))
 
-                    Spacer()
+                        Spacer()
 
-                    TemperatureRangeIndicatorView(
-                        minDayTemp: globalMinTemp,
-                        maxDayTemp: globalMaxTemp,
-                        currentMinTemp: forecastDay.day.mintempC,
-                        currentMaxTemp: forecastDay.day.maxtempC,
-                        currentTemp: (forecastDay.day.mintempC + forecastDay.day.maxtempC) / 2
-                    )
+                        TemperatureRangeIndicatorView(
+                            minDayTemp: globalMinTemp,
+                            maxDayTemp: globalMaxTemp,
+                            currentMinTemp: forecastDay.day.mintempC,
+                            currentMaxTemp: forecastDay.day.maxtempC,
+                            currentTemp: (forecastDay.day.mintempC + forecastDay.day.maxtempC) / 2
+                        )
+                    }
                 }
+
 
                 if index < days.count - 1 {
                     Divider()
