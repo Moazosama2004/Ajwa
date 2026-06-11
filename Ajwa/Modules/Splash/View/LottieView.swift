@@ -30,6 +30,3 @@ struct LottieView: UIViewRepresentable {
     }
 }
 
-#Preview {
-    LottieView()
-}
