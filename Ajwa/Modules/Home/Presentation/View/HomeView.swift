@@ -6,18 +6,12 @@
 //
 import SwiftUI
 import CoreLocation
+import SwiftData
 
 struct HomeView: View {
     
-    @StateObject private var viewModel = HomeViewModel(
-        repo: HomeRepository(
-            remoteDataSource: HomeRemoteDataSource(
-                weatherService: WeatherApiService()
-            )
-        )
-    )
-    
-    @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.modelContext) private var modelContext
+    @StateObject private var viewModel = HomeViewModel()
     
     var body: some View {
         NavigationStack {
@@ -84,6 +78,19 @@ struct HomeView: View {
                     }
                 }
             }
+            .onAppear {
+                viewModel.setup(
+                    repo: HomeRepository(
+                        remoteDataSource: HomeRemoteDataSource(
+                            weatherService: WeatherApiService()
+                        ),
+                        localDataSource: HomeLocalDataSource(
+                            localStorageService: WeatherLocalStorageService(context: modelContext)
+                        )
+                    )
+                )
+                viewModel.getUserLocation()
+            }
             
             // MARK: - Permission Alert
             .alert("Location Permission Required",
@@ -101,11 +108,6 @@ struct HomeView: View {
                 
             } message: {
                 Text("Please enable location access in Settings to continue using the app.")
-            }
-            
-            // MARK: - First load
-            .onAppear {
-                viewModel.getUserLocation()
             }
             
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in

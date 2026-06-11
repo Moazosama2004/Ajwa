@@ -10,23 +10,31 @@ import CoreLocation
 
 @MainActor
 class DetailsViewModel: ObservableObject {
+
     @Published var weather: WeatherResponse?
     @Published var isLoading = false
     @Published var errorMessage: String?
 
-    private let repo: HomeRepository
+    private var repo: HomeRepository?
 
-    init(repo: HomeRepository) {
+    init() {}
+
+    func setup(repo: HomeRepository) {
+        guard self.repo == nil else { return }
         self.repo = repo
     }
 
     func loadWeather(from city: WeatherSearchResult) async {
+        guard let repo else {
+            errorMessage = "Repository not initialized"
+            return
+        }
         isLoading = true
         errorMessage = nil
         defer { isLoading = false }
         do {
             let location = CLLocation(latitude: city.lat, longitude: city.lon)
-            weather = try await repo.fetchForecast(from: location)
+            weather = try await repo.fetchWeatherData(from: location) 
         } catch {
             errorMessage = error.localizedDescription
         }

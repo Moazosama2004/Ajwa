@@ -4,6 +4,8 @@
 //
 //  Created by Moaz on 09/06/2026.
 //
+
+
 import Foundation
 import CoreLocation
 import UIKit
@@ -14,15 +16,18 @@ class HomeViewModel: ObservableObject {
     @Published var weather: WeatherResponse?
     @Published var isLoading = false
     @Published var errorMessage: String?
-
     @Published var showPermissionAlert = false
-    
-    private let repo: HomeRepository
+
+    private var repo: HomeRepository?
     private let locationService = LocationService()
 
-    init(repo: HomeRepository) {
-        self.repo = repo
+    init() {
         setupHandlers()
+    }
+
+    func setup(repo: HomeRepository) {
+        guard self.repo == nil else { return }
+        self.repo = repo
     }
 
     private func setupHandlers() {
@@ -31,7 +36,6 @@ class HomeViewModel: ObservableObject {
                 self?.showPermissionAlert = true
             }
         }
-
         NotificationCenter.default.addObserver(
             forName: UIApplication.didBecomeActiveNotification,
             object: nil,
@@ -41,53 +45,42 @@ class HomeViewModel: ObservableObject {
         }
     }
 
-    func getUserLocation() {
-        let status = locationService.currentStatus()
-
-        switch status {
-
-        case .notDetermined:
-            Task {
-                _ = try? await locationService.requestLocation()
-            }
-
-        case .denied, .restricted:
-            showPermissionAlert = true
-
-        case .authorizedWhenInUse, .authorizedAlways:
-            Task {
-                await loadWeather()
-            }
-
-        @unknown default:
-            break
-        }
-    }
-    
-    func checkPermissionStatus() {
-        let status = locationService.currentStatus()
-
-        if status == .denied || status == .restricted {
-            showPermissionAlert = true
-        } else {
-            showPermissionAlert = false
-        }
-    }
-
     private func loadWeather() async {
+        guard let repo else {
+            errorMessage = "Repository not initialized"
+            return
+        }
         isLoading = true
         defer { isLoading = false }
-
         do {
             let location = try await locationService.requestLocation()
-            weather = try await repo.fetchForecast(from: location)
-
+            weather = try await repo.fetchWeatherData(from: location)  
         } catch {
             errorMessage = error.localizedDescription
         }
     }
 
-    // MARK: - Open Settings
+    func getUserLocation() {
+        let status = locationService.currentStatus()
+        switch status {
+        case .notDetermined:
+            Task {
+                _ = try? await locationService.requestLocation()
+            }
+        case .denied, .restricted:
+            showPermissionAlert = true
+        case .authorizedWhenInUse, .authorizedAlways:
+            Task { await loadWeather() }
+        @unknown default:
+            break
+        }
+    }
+
+    func checkPermissionStatus() {
+        let status = locationService.currentStatus()
+        showPermissionAlert = status == .denied || status == .restricted
+    }
+
     func openSettings() {
         guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
         UIApplication.shared.open(url)

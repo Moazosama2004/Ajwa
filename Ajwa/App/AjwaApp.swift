@@ -13,6 +13,10 @@ struct AjwaApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
-        }
+        }.modelContainer(for: [
+            MyLocationWeather.self,
+            FavouriteLocationWeather.self,
+            ForecastDayEntity.self
+        ])
     }
 }

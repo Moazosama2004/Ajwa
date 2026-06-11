@@ -8,16 +8,10 @@
 import SwiftUI
 
 struct DetailsView: View {
-    
+    @Environment(\.modelContext) private var modelContext
     let city: WeatherSearchResult
  
-    @StateObject private var viewModel = DetailsViewModel(
-        repo: HomeRepository(
-            remoteDataSource: HomeRemoteDataSource(
-                weatherService: WeatherApiService()
-            )
-        )
-    )
+    @StateObject private var viewModel = DetailsViewModel()
  
     var body: some View {
         ZStack {
@@ -62,6 +56,18 @@ struct DetailsView: View {
                 }
             }
         }
+        .onAppear {
+                    viewModel.setup(
+                        repo: HomeRepository(
+                            remoteDataSource: HomeRemoteDataSource(
+                                weatherService: WeatherApiService()
+                            ),
+                            localDataSource: HomeLocalDataSource(
+                                localStorageService: WeatherLocalStorageService(context: modelContext)
+                            )
+                        )
+                    )
+                }
         .task {
             await viewModel.loadWeather(from: city)
         }
