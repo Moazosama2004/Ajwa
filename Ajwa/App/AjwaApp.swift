@@ -10,6 +10,7 @@ import SwiftData
 
 @main
 struct AjwaApp: App {
+    @StateObject private var networkMonitor = NetworkMonitor.shared
     var body: some Scene {
         WindowGroup {
             HomeView()
@@ -17,6 +18,6 @@ struct AjwaApp: App {
             MyLocationWeather.self,
             FavouriteLocationWeather.self,
             ForecastDayEntity.self
-        ])
+        ]).environmentObject(networkMonitor)
     }
 }

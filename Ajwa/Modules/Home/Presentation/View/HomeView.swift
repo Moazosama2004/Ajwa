@@ -44,6 +44,14 @@ struct HomeView: View {
                     ProgressView("Getting location...")
                         .tint(theme.contentColor)
                 }
+                
+                VStack {
+                    NetworkBanner()
+                        .shadow(radius: 4)
+                        .transition(.move(edge: .top).combined(with: .opacity))
+                    
+                    Spacer()
+                }
             }
             .themedBackground()
             .navigationTitle("Home")

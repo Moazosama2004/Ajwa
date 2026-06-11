@@ -18,21 +18,37 @@ struct FavouritesView: View {
             Color(.appBackground)
                 .ignoresSafeArea()
 
-                ScrollView {
-                    VStack {
-                        if viewModel.isLoading {
-                            ProgressView()
+            ScrollView {
+                VStack {
+                    if viewModel.isLoading {
+                        ProgressView()
+                    } else if viewModel.favourites.isEmpty {
+                        VStack(spacing: 16) {
+                            Image(systemName: "star.slash")
+                                .font(.system(size: 50))
+                                .foregroundStyle(.secondary)
+                            
+                            Text("No favourites yet")
+                                .font(.system(size: 18, weight: .semibold))
+                            
+                            Text("Add some cities to see them here!")
+                                .font(.system(size: 15))
+                                .foregroundStyle(.secondary)
+                                .multilineTextAlignment(.center)
                         }
-                        
+                        .frame(maxWidth: .infinity)
+                        .frame(height: UIScreen.main.bounds.height * 0.6)
+                    } else {
                         ForEach(viewModel.favourites, id: \.location.name) { favourite in
-                           NavigationLink {
-                               DetailsView(city: viewModel.toSearchResult(favourite))
-                           } label: {
-                               CityWeatherSearchView(city: viewModel.toSearchResult(favourite))
-                           }
-                       }
+                            NavigationLink {
+                                DetailsView(city: viewModel.toSearchResult(favourite))
+                            } label: {
+                                CityWeatherSearchView(city: viewModel.toSearchResult(favourite))
+                            }
+                        }
                     }
-                    .padding()
+                }
+                .padding()
             }
             .scrollIndicators(.hidden)
         }

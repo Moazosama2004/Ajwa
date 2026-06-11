@@ -13,7 +13,7 @@ class SearchViewModel: ObservableObject {
     
     @Published var searchQuery = ""
     @Published var results: [WeatherSearchResult] = []
-    @Published var isLoading = false
+    @Published var state: SearchState = .idle
     
     private let repo: SearchRepositiory
     private var cancellables = Set<AnyCancellable>()
@@ -36,20 +36,50 @@ class SearchViewModel: ObservableObject {
     }
     
     private func performSearch(query: String) async {
+        
         guard !query.isEmpty else {
             results = []
+            state = .idle
             return
         }
         
-        isLoading = true
-        defer { isLoading = false }
+        state = .loading
         
         do {
             let data = try await repo.search(for: query)
+            
             results = data
+            
+            if data.isEmpty {
+                state = .empty
+            } else {
+                state = .success
+            }
+            
         } catch {
-            print("Search error:", error)
+            
+            if let urlError = error as? URLError,
+               urlError.code == .notConnectedToInternet {
+                
+                state = .noInternet
+                
+            } else {
+                state = .error
+            }
+            
             results = []
+            
+            print(error)
         }
     }
+}
+
+
+enum SearchState {
+    case idle
+    case loading
+    case success
+    case empty
+    case noInternet
+    case error
 }

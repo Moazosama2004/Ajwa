@@ -28,6 +28,10 @@ class WeatherApiService {
     }
     
     func search(for text: String) async throws -> [WeatherSearchResult] {
+        guard await NetworkMonitor.shared.isConnected else {
+                throw URLError(.notConnectedToInternet)
+        }
+        
         let query = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
 
         let endpoint = WeatherSearchEndPoint.search(query: query)

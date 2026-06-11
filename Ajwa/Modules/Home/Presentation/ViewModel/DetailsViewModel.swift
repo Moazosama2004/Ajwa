@@ -43,8 +43,10 @@ class DetailsViewModel: ObservableObject {
     }
     
     func toggleFavourite() {
+        print("toggleFavourite()")
         guard let weather else { return }
         if isFavourite {
+            print("isFavourite(true) => ")
             repo?.removeFavourite(cityName: weather.location.name)
         } else {
             repo?.addFavourite(weather)
