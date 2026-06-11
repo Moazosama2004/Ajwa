@@ -1,4 +1,21 @@
-# AJWA
+<p align="center">
+  <span style="border-radius: 24px; overflow: hidden; display: inline-block;">
+    <img src="https://github.com/user-attachments/assets/6e30a687-d037-4b9d-952d-a09e8488851a" alt="Ajwa App Logo" width="180" style="display: block;"/>
+  </span>
+</p>
+
+<h1 align="center">AJWA</h1>
+
+<p align="center">
+  A modern, SwiftUI weather client — clean, contextual, and location-aware. Built to deliver quick, glanceable forecasts with an adaptive UI that reflects time of day.
+</p>
+
+<p align="center">
+  <a href=""><img src="https://img.shields.io/badge/build-passing-success.svg" alt="Build Status"></a>
+  <a href=""><img src="https://img.shields.io/badge/platform-iOS-blue.svg" alt="Platform"></a>
+</p>
+
+---
 A modern, SwiftUI weather client — clean, contextual, and location-aware. Built to deliver quick, glanceable forecasts with an adaptive UI that reflects time of day.
 
 [![Build Status](https://img.shields.io/badge/build-unknown-lightgrey.svg)]() [![Platform](https://img.shields.io/badge/platform-iOS-blue.svg)]()
@@ -65,8 +82,8 @@ A modern, SwiftUI weather client — clean, contextual, and location-aware. Buil
 
 ### Clone the repository
 ```bash
-git clone https://github.com/<your-org>/WeatherCast-App.git
-cd WeatherCast-App
+git clone https://github.com/Moazosama2004/Ajwa.git
+cd Ajwa-App
 ```
 
 ### Open the project
@@ -81,19 +98,19 @@ open Ajwa.xcodeproj
 
 ### Add your WeatherAPI key securely
 Preferred: use the provided `Config.xcconfig` file.
-1. Open `Ajwa/App/Config.xcconfig` and add a key (do NOT commit real keys):
+1. Create `Config.xcconfig` and add a key (do NOT commit real keys):
 ```
 WEATHERAPI_KEY = your_real_api_key_here
 ```
 2. Ensure the target build settings include this xcconfig (the project already includes a `Config.xcconfig`).
 
-Alternative (local dev only): add a `Secrets.swift` file (ignored by Git) with:
+Alternative (local dev only): add a `Config.swift` file (ignored by Git) with:
 ```swift
-enum Secrets {
+enum Config {
   static let weatherAPIKey = "your_real_api_key_here"
 }
 ```
-Make sure `Secrets.swift` is listed in `.gitignore` to avoid leaking credentials.
+Make sure `Config.swift` is listed in `.gitignore` to avoid leaking credentials.
 
 ### Build & Run
 - Select a simulator or physical device in Xcode and run (Cmd+R).
