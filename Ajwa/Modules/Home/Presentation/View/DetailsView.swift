@@ -49,10 +49,10 @@ struct DetailsView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    // Favorites action
+                    viewModel.toggleFavourite()
                 } label: {
-                    Image(systemName: "heart")
-                        .foregroundStyle(.primary)
+                    Image(systemName: viewModel.isFavourite ? "heart.fill" : "heart")
+                        .foregroundStyle(viewModel.isFavourite ? .red : .primary)
                 }
             }
         }

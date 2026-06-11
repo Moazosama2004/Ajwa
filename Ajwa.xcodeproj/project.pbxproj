@@ -55,6 +55,8 @@
 		41BC71672FD8F08E0065F621 /* Astro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC71662FD8F08E0065F621 /* Astro.swift */; };
 		41BC71692FD8F0A10065F621 /* HourWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC71682FD8F0A10065F621 /* HourWeather.swift */; };
 		41BC716C2FD8F37B0065F621 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC716B2FD8F37B0065F621 /* Helper.swift */; };
+		41C084C52FDAC5B600179BE5 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C084C42FDAC5B600179BE5 /* FavouritesView.swift */; };
+		41C084C72FDAC65000179BE5 /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C084C62FDAC65000179BE5 /* FavouritesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +111,8 @@
 		41BC71662FD8F08E0065F621 /* Astro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Astro.swift; sourceTree = "<group>"; };
 		41BC71682FD8F0A10065F621 /* HourWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourWeather.swift; sourceTree = "<group>"; };
 		41BC716B2FD8F37B0065F621 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		41C084C42FDAC5B600179BE5 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
+		41C084C62FDAC65000179BE5 /* FavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +257,7 @@
 			children = (
 				41BC715E2FD8EB8E0065F621 /* HomeViewModel.swift */,
 				41BA50B32FDA2879001A4EB2 /* DetailsViewModel.swift */,
+				41C084C62FDAC65000179BE5 /* FavouritesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 				41BC71242FD89DD00065F621 /* Components */,
 				41BC71222FD884820065F621 /* HomeView.swift */,
 				41BA50B12FDA24A1001A4EB2 /* DetailsView.swift */,
+				41C084C42FDAC5B600179BE5 /* FavouritesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -498,6 +504,7 @@
 				41BC715D2FD8EB400065F621 /* HomeRepository.swift in Sources */,
 				41BC714D2FD8E3820065F621 /* Location.swift in Sources */,
 				41BC715A2FD8EA880065F621 /* HomeRemoteDataSource.swift in Sources */,
+				41C084C52FDAC5B600179BE5 /* FavouritesView.swift in Sources */,
 				416270C12FDA3D16008650FE /* ForecastDayEntity .swift in Sources */,
 				41BC71672FD8F08E0065F621 /* Astro.swift in Sources */,
 				41BC71612FD8F0590065F621 /* Forecast.swift in Sources */,
@@ -520,6 +527,7 @@
 				41BC713C2FD8CD480065F621 /* MainWeatherView.swift in Sources */,
 				41BC71262FD89ED10065F621 /* HourlyForecastView.swift in Sources */,
 				41BC715F2FD8EB8E0065F621 /* HomeViewModel.swift in Sources */,
+				41C084C72FDAC65000179BE5 /* FavouritesViewModel.swift in Sources */,
 				41BA50B62FDA31FF001A4EB2 /* MyLocationWeather.swift in Sources */,
 				41BC713A2FD8CACE0065F621 /* Color+Hex.swift in Sources */,
 				41BA50A32FD9E188001A4EB2 /* LocationService.swift in Sources */,

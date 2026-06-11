@@ -61,8 +61,8 @@ struct HomeView: View {
             
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        print("Favorites tapped")
+                    NavigationLink {
+                        FavouritesView()
                     } label: {
                         Image(systemName: "heart")
                             .foregroundStyle(.primary)
