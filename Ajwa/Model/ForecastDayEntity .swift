@@ -22,7 +22,6 @@ final class ForecastDayEntity {
     var chanceOfRain: Int
     var uv: Double
 
-    // Back-references (only one will be set)
     var myLocationWeather: MyLocationWeather?
     var favouriteLocationWeather: FavouriteLocationWeather?
 

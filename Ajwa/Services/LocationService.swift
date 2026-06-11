@@ -55,7 +55,7 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
         manager.authorizationStatus
     }
 
-    // MARK: - Authorization change
+    
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
 
         switch manager.authorizationStatus {
@@ -74,15 +74,13 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
         }
     }
 
-    // MARK: - Success
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
 
         continuation?.resume(returning: location)
         continuation = nil
     }
-
-    // MARK: - Error
+    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         continuation?.resume(throwing: error)
         continuation = nil

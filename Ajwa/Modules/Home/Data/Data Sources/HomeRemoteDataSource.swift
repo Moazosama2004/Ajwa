@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-class HomeRemoteDataSource {
+class HomeRemoteDataSource : HomeRemoteDataSourceProtocol {
     private let weatherService : WeatherApiService
     
     init(weatherService: WeatherApiService) {

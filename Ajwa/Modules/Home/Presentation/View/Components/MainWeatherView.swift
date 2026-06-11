@@ -8,115 +8,114 @@
 import SwiftUI
 
 struct MainWeatherView: View {
-    let weather : WeatherResponse
+    let weather: WeatherResponse
+    private let theme = ThemeManager.shared.current
+
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 20) {
+
             
-            HStack {
-                VStack(alignment: .leading, spacing: 8){
+            HStack(alignment: .top) {
+                VStack(alignment: .leading, spacing: 6) {
                     Text("Chance of rain \(chanceOfRainPercentage(from: weather.current.chanceOfRain))%")
-                        .font(.system(size: 14, weight: .regular, design: .rounded))
-                        .foregroundStyle(.white)
+                        .font(.system(size: 13, weight: .regular, design: .rounded))
+                        .foregroundStyle(theme.contentColor.opacity(0.7))
+
                     Text(weather.current.condition.text)
-                        .font(.system(size: 24, weight: .regular, design: .rounded))
-                        .foregroundStyle(.white)
+                        .font(.system(size: 26, weight: .semibold, design: .rounded))
+                        .foregroundStyle(theme.contentColor)
                 }
                 Spacer()
                 Image(WeatherAsset.from(
                     code: weather.current.condition.code,
                     isDay: weather.current.isDay == 1
-                ).rawValue
-                )
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 72 , height: 72)
+                ).rawValue)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 80, height: 80)
             }
+
             
-            HStack {
+            HStack(spacing: 6) {
                 Image(systemName: "location.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundStyle(.white)
-                    .frame(width: 20 , height: 20)
+                    .font(.system(size: 13))
+                    .foregroundStyle(theme.contentColor.opacity(0.8))
                 Text("\(weather.location.name), \(weather.location.country)")
-                    .font(.system(size: 14, weight: .regular, design: .rounded))
-                    .foregroundStyle(.white)
+                    .font(.system(size: 13, weight: .regular, design: .rounded))
+                    .foregroundStyle(theme.contentColor.opacity(0.8))
+                    .lineLimit(1)
             }
-            
-            HStack {
+
+            // MARK: - Precipitation
+            HStack(spacing: 6) {
                 Image(systemName: "cloud.moon.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundStyle(.white)
-                    .frame(width: 20 , height: 20)
+                    .font(.system(size: 13))
+                    .foregroundStyle(theme.contentColor.opacity(0.8))
                 Text("No precipitation for at least 120min")
-                    .font(.system(size: 14, weight: .regular, design: .rounded))
-                    .foregroundStyle(.white)
+                    .font(.system(size: 13, weight: .regular, design: .rounded))
+                    .foregroundStyle(theme.contentColor.opacity(0.8))
             }
-            
-            HStack {
-                HStack(alignment: .top) {
+
+            Divider()
+                .overlay(theme.contentColor.opacity(0.3))
+
+            // MARK: - Temp Row
+            HStack(alignment: .bottom) {
+                // Current temp
+                HStack(alignment: .top, spacing: 2) {
                     Text("\(Int(weather.current.tempC))")
-                        .font(.system(size: 24, weight: .regular, design: .rounded))
-                        .foregroundStyle(.white)
+                        .font(.system(size: 52, weight: .thin, design: .rounded))
+                        .foregroundStyle(theme.contentColor)
                     Text("°C")
-                        .font(.system(size: 16, weight: .regular, design: .rounded))
-                        .foregroundStyle(.white)
+                        .font(.system(size: 20, weight: .light, design: .rounded))
+                        .foregroundStyle(theme.contentColor)
+                        .padding(.top, 8)
                 }
-            
+
                 Spacer()
-                HStack() {
-                    HStack {
+
+                // Max / Min / Feels like
+                VStack(alignment: .trailing, spacing: 6) {
+                    HStack(spacing: 4) {
                         Image(.max)
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 20 , height: 20)
+                            .frame(width: 18, height: 18)
                         Text("\(Int(weather.forecast.forecastday[0].day.maxtempC))°C")
-                            .font(.system(size: 14, weight: .regular, design: .rounded))
-                            .foregroundStyle(.white)
+                            .font(.system(size: 13, weight: .medium, design: .rounded))
+                            .foregroundStyle(theme.contentColor)
                     }
-                    .padding(.leading , 8.0)
-                   
-                    HStack {
+                    HStack(spacing: 4) {
                         Image(.min)
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 20 , height: 20)
+                            .frame(width: 18, height: 18)
                         Text("\(Int(weather.forecast.forecastday[0].day.mintempC))°C")
-                            .font(.system(size: 14, weight: .regular, design: .rounded))
-                            .foregroundStyle(.white)
+                            .font(.system(size: 13, weight: .medium, design: .rounded))
+                            .foregroundStyle(theme.contentColor)
                     }
-                    .padding(.leading , 8.0)
-                    
-                    HStack {
-
-                        Text("Feels like")
-                            .font(.system(size: 14, weight: .regular))
-                            .foregroundStyle(.white)
-                        Text("\(Int(weather.current.feelslikeC))°C")
-                            .font(.system(size: 12, weight: .regular))
-                            .foregroundStyle(.white)
+                    HStack(spacing: 4) {
+                        Image(systemName: "thermometer.medium")
+                            .font(.system(size: 12))
+                            .foregroundStyle(theme.contentColor.opacity(0.7))
+                        Text("Feels like \(Int(weather.current.feelslikeC))°C")
+                            .font(.system(size: 12, weight: .regular, design: .rounded))
+                            .foregroundStyle(theme.contentColor.opacity(0.7))
                     }
                 }
             }
-            
-           
         }
-        .padding()
+        .padding(20)
         .background {
-            RoundedRectangle(cornerRadius: 20.0)
-                .fill(
-                    LinearGradient(
-                        colors: [
-                            Color(hex: "3C6FD1"), Color(hex: "7CA9FF"),
-                               ],
-                        startPoint: .top,
-                        endPoint: .bottom
-                    )
+            RoundedRectangle(cornerRadius: 24)
+                .fill(theme.contentColor == .white
+                      ? Color.white.opacity(0.15)
+                      : Color.black.opacity(0.08)
                 )
-               
-           
-            
+                .overlay {
+                    RoundedRectangle(cornerRadius: 24)
+                        .stroke(theme.contentColor.opacity(0.2), lineWidth: 1)
+                }
         }
     }
 }

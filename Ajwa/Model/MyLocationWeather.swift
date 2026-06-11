@@ -11,6 +11,7 @@ import SwiftData
 @Model
 final class MyLocationWeather {
     var cityName: String
+    var region: String
     var country: String
     var latitude: Double
     var longitude: Double
@@ -25,21 +26,27 @@ final class MyLocationWeather {
     var isDay: Bool
     var lastUpdated: String
     var savedAt: Date
-    
+    var chanceOfRain: Int
+    var uv: Double
+    var visKm: Double
+    var cloud: Int
+    var precipMm: Double
+
     @Relationship(deleteRule: .cascade, inverse: \ForecastDayEntity.myLocationWeather)
     var forecastDays: [ForecastDayEntity] = []
 
-
     init(
-        cityName: String, country: String,
+        cityName: String, region: String, country: String,
         latitude: Double, longitude: Double,
         tempC: Double, tempF: Double,
-        conditionText: String, conditionIcon: String,conditionCode: Int,
+        conditionText: String, conditionIcon: String, conditionCode: Int,
         humidity: Int, windKph: Double,
         feelsLikeC: Double, isDay: Bool,
-        lastUpdated: String
+        lastUpdated: String,
+        chanceOfRain: Int, uv: Double,
+        visKm: Double, cloud: Int, precipMm: Double
     ) {
-        self.cityName = cityName; self.country = country
+        self.cityName = cityName; self.region = region; self.country = country
         self.latitude = latitude; self.longitude = longitude
         self.tempC = tempC; self.tempF = tempF
         self.conditionText = conditionText; self.conditionIcon = conditionIcon
@@ -47,6 +54,8 @@ final class MyLocationWeather {
         self.humidity = humidity; self.windKph = windKph
         self.feelsLikeC = feelsLikeC; self.isDay = isDay
         self.lastUpdated = lastUpdated; self.savedAt = .now
+        self.chanceOfRain = chanceOfRain; self.uv = uv
+        self.visKm = visKm; self.cloud = cloud; self.precipMm = precipMm
     }
 }
 
@@ -68,14 +77,14 @@ extension MyLocationWeather {
                     code: conditionCode
                 ),
                 windMph: 0, windKph: windKph, windDegree: 0, windDir: "",
-                pressureMb: 0, pressureIn: 0, precipMm: 0, precipIn: 0,
-                humidity: humidity, cloud: 0,
+                pressureMb: 0, pressureIn: 0, precipMm: precipMm, precipIn: 0,
+                humidity: humidity, cloud: cloud,
                 feelslikeC: feelsLikeC, feelslikeF: 0,
                 windchillC: 0, windchillF: 0,
                 heatindexC: 0, heatindexF: 0,
                 dewpointC: 0, dewpointF: 0,
-                visKm: 0, visMiles: 0, uv: 0,
-                gustMph: 0, gustKph: 0, chanceOfRain: 0
+                visKm: visKm, visMiles: 0, uv: uv,
+                gustMph: 0, gustKph: 0, chanceOfRain: chanceOfRain
             ),
             forecast: Forecast(
                 forecastday: forecastDays

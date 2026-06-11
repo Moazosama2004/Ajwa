@@ -15,12 +15,14 @@ class DetailsViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var errorMessage: String?
     @Published var isFavourite = false
+    @Published var showRemoveAlert = false
 
-    private var repo: HomeRepository?
+
+    private var repo: HomeRepoProtocol?
 
     init() {}
 
-    func setup(repo: HomeRepository) {
+    func setup(repo: HomeRepoProtocol) {
         guard self.repo == nil else { return }
         self.repo = repo
     }
@@ -43,8 +45,10 @@ class DetailsViewModel: ObservableObject {
     }
     
     func toggleFavourite() {
+        print("toggleFavourite()")
         guard let weather else { return }
         if isFavourite {
+            print("isFavourite(true) => ")
             repo?.removeFavourite(cityName: weather.location.name)
         } else {
             repo?.addFavourite(weather)

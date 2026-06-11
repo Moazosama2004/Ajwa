@@ -12,12 +12,12 @@ class FavouritesViewModel : ObservableObject {
     @Published var errorMessage: String?
     @Published var favourites: [WeatherResponse] = []
     
-    private var repo : HomeRepository?
+    private var repo : HomeRepoProtocol?
     
     init(){}
     
     
-    func setup(repo: HomeRepository) {
+    func setup(repo: HomeRepoProtocol) {
         guard self.repo == nil else { return }
         self.repo = repo
     }
