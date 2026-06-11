@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SearchRepositiory {
+class SearchRepositiory : SearchRepositoryProtocol {
     private let searchRemoteDataSource : SearchRemoteDataSource
     
     init(searchRemoteDataSource: SearchRemoteDataSource) {

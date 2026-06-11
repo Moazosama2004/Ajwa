@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-class WeatherApiService {
+class WeatherApiService : WeatherServiceProtocol {
     // takes lang , lat -> WeatherResponse
     
     func fetchForecast(from location : CLLocation) async throws -> WeatherResponse {
@@ -49,70 +49,5 @@ class WeatherApiService {
     }
 }
 
-protocol EndPoint {
-    var baseUrl: String { get }
-    var path: String { get }
-    var method: String { get }
-    var queryItems: [URLQueryItem] { get }
-    var url: URL? { get }
-}
 
-extension EndPoint {
-    var url: URL? {
-        var components = URLComponents(string: baseUrl + path)
-        components?.queryItems = queryItems
-        return components?.url
-    }
-}
 
-enum ForeCastWeatherEndPoint: EndPoint {
-    case forecast(lat: Double, lon: Double, days: Int = 3, aqi: Bool = false, alerts: Bool = false)
-
-    var baseUrl: String { "https://api.weatherapi.com/v1" }
-
-    var path: String {
-        switch self {
-        case .forecast: return "/forecast.json"
-        }
-    }
-
-    var method: String { "GET" }
-
-    var queryItems: [URLQueryItem] {
-        switch self {
-        case .forecast(let lat, let lon, let days, let aqi, let alerts):
-            return [
-                URLQueryItem(name: "key", value: Config.apikey),
-                URLQueryItem(name: "q", value: "\(lat),\(lon)"),
-                URLQueryItem(name: "days", value: "\(days)"),
-                URLQueryItem(name: "aqi", value: aqi ? "yes" : "no"),
-                URLQueryItem(name: "alerts", value: alerts ? "yes" : "no")
-            ]
-        }
-    }
-}
-
-enum WeatherSearchEndPoint: EndPoint {
-    case search(query: String)
-
-    var baseUrl: String { "https://api.weatherapi.com/v1" }
-
-    var path: String {
-        switch self {
-        case .search:
-            return "/search.json"
-        }
-    }
-
-    var method: String { "GET" }
-
-    var queryItems: [URLQueryItem] {
-        switch self {
-        case .search(let query):
-            return [
-                URLQueryItem(name: "key", value: Config.apikey),
-                URLQueryItem(name: "q", value: query)
-            ]
-        }
-    }
-}

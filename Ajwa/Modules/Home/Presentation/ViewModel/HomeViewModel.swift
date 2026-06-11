@@ -17,15 +17,16 @@ class HomeViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var errorMessage: String?
     @Published var showPermissionAlert = false
+    @Published var locationDeniedMessage: String? = nil
 
-    private var repo: HomeRepository?
+    private var repo: HomeRepoProtocol?
     private let locationService = LocationService()
 
     init() {
         setupHandlers()
     }
 
-    func setup(repo: HomeRepository) {
+    func setup(repo: HomeRepoProtocol) {
         guard self.repo == nil else { return }
         self.repo = repo
     }

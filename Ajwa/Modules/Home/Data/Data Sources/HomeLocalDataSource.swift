@@ -7,39 +7,34 @@
 
 import Foundation
 
-class HomeLocalDataSource {
-    private let localStorageService : WeatherLocalStorageServiceProtocol
-    
-    init(localStorageService: WeatherLocalStorageServiceProtocol) {
-        self.localStorageService = localStorageService
+class HomeLocalDataSource : HomeLocalDataSourceProtocol {
+    private let storageService: WeatherLocalStorageServiceProtocol
+
+    init(storageService: WeatherLocalStorageServiceProtocol) {
+        self.storageService = storageService
     }
-    
+
     func saveMyLocation(_ response: WeatherResponse) {
-        localStorageService.saveMyLocation(response)
+        storageService.saveMyLocation(response)
     }
-    
+
     func fetchMyLocation() -> MyLocationWeather? {
-        localStorageService.fetchMyLocation()
+        storageService.fetchMyLocation()
     }
-    
+
     func addFavourite(_ response: WeatherResponse) {
-        localStorageService.addFavourite(response)
+        storageService.addFavourite(response)
     }
-    
+
     func removeFavourite(city: String) {
-        localStorageService.removeFavourite(cityName: city)
+        storageService.removeFavourite(cityName: city)
     }
-    
+
     func fetchAllFavourites() -> [FavouriteLocationWeather] {
-        localStorageService.fetchAllFavourites()
+        storageService.fetchAllFavourites()
     }
-    
+
     func isFavourite(city: String) -> Bool {
-        localStorageService.isFavourite(cityName: city)
+        storageService.isFavourite(cityName: city)
     }
 }
-
-
-
-
-

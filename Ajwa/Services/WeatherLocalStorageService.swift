@@ -14,8 +14,7 @@ final class WeatherLocalStorageService: WeatherLocalStorageServiceProtocol {
     init(context: ModelContext) {
         self.context = context
     }
-
-
+    
     func saveMyLocation(_ response: WeatherResponse) {
         deleteAll(MyLocationWeather.self)
         context.insert(WeatherModelMapper.toMyLocation(from: response))

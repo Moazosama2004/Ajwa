@@ -14,6 +14,18 @@
 		419813602FDAFC8100559938 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198135F2FDAFC8100559938 /* NetworkMonitor.swift */; };
 		419813632FDAFE7E00559938 /* NetworkBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419813622FDAFE7E00559938 /* NetworkBanner.swift */; };
 		41A763CC2FD7948900AB91C8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41A763CB2FD7948900AB91C8 /* Launch Screen.storyboard */; };
+		41B4FBBF2FDB439B007D4321 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 41B4FBBE2FDB439B007D4321 /* Lottie */; };
+		41B4FBC32FDB4EBC007D4321 /* WeatherModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B4FBC22FDB4EBC007D4321 /* WeatherModelMapper.swift */; };
+		41B4FBC52FDB4F49007D4321 /* WeatherServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B4FBC42FDB4F49007D4321 /* WeatherServiceProtocol.swift */; };
+		41B4FBC72FDB4F70007D4321 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B4FBC62FDB4F70007D4321 /* EndPoint.swift */; };
+		41B4FBC92FDB4FC2007D4321 /* WeatherSearchEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B4FBC82FDB4FC2007D4321 /* WeatherSearchEndPoint.swift */; };
+		41B4FBCB2FDB4FCD007D4321 /* ForeCastWeatherEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B4FBCA2FDB4FCD007D4321 /* ForeCastWeatherEndPoint.swift */; };
+		41B4FBCE2FDB5049007D4321 /* HomeRemoteDataSourceProtocol .swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B4FBCD2FDB5049007D4321 /* HomeRemoteDataSourceProtocol .swift */; };
+		41B4FBD02FDB507F007D4321 /* HomeLocalDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B4FBCF2FDB507F007D4321 /* HomeLocalDataSourceProtocol.swift */; };
+		41B4FBD22FDB50CA007D4321 /* HomeRepoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B4FBD12FDB50CA007D4321 /* HomeRepoProtocol.swift */; };
+		41B4FBD42FDB5189007D4321 /* SearchRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B4FBD32FDB5189007D4321 /* SearchRepositoryProtocol.swift */; };
+		41B4FBD62FDB51B1007D4321 /* SearchRemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B4FBD52FDB51B1007D4321 /* SearchRemoteDataSourceProtocol.swift */; };
+		41B4FBD82FDB523A007D4321 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B4FBD72FDB523A007D4321 /* LottieView.swift */; };
 		41B7A6112FD782290010302B /* AjwaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B7A6102FD782290010302B /* AjwaApp.swift */; };
 		41B7A6172FD7822B0010302B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41B7A6162FD7822B0010302B /* Assets.xcassets */; };
 		41B7A61A2FD7822B0010302B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41B7A6192FD7822B0010302B /* Preview Assets.xcassets */; };
@@ -63,6 +75,7 @@
 		41C084C72FDAC65000179BE5 /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C084C62FDAC65000179BE5 /* FavouritesViewModel.swift */; };
 		41C084C92FDAD31800179BE5 /* HourlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C084C82FDAD31800179BE5 /* HourlyView.swift */; };
 		41C084CB2FDAD6BA00179BE5 /* HourRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C084CA2FDAD6BA00179BE5 /* HourRowView.swift */; };
+		41E4F5372FDB32E6008C5E19 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E4F5362FDB32E6008C5E19 /* SplashView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +86,17 @@
 		4198135F2FDAFC8100559938 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		419813622FDAFE7E00559938 /* NetworkBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkBanner.swift; sourceTree = "<group>"; };
 		41A763CB2FD7948900AB91C8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		41B4FBC22FDB4EBC007D4321 /* WeatherModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModelMapper.swift; sourceTree = "<group>"; };
+		41B4FBC42FDB4F49007D4321 /* WeatherServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceProtocol.swift; sourceTree = "<group>"; };
+		41B4FBC62FDB4F70007D4321 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		41B4FBC82FDB4FC2007D4321 /* WeatherSearchEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSearchEndPoint.swift; sourceTree = "<group>"; };
+		41B4FBCA2FDB4FCD007D4321 /* ForeCastWeatherEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCastWeatherEndPoint.swift; sourceTree = "<group>"; };
+		41B4FBCD2FDB5049007D4321 /* HomeRemoteDataSourceProtocol .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeRemoteDataSourceProtocol .swift"; sourceTree = "<group>"; };
+		41B4FBCF2FDB507F007D4321 /* HomeLocalDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLocalDataSourceProtocol.swift; sourceTree = "<group>"; };
+		41B4FBD12FDB50CA007D4321 /* HomeRepoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRepoProtocol.swift; sourceTree = "<group>"; };
+		41B4FBD32FDB5189007D4321 /* SearchRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoryProtocol.swift; sourceTree = "<group>"; };
+		41B4FBD52FDB51B1007D4321 /* SearchRemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
+		41B4FBD72FDB523A007D4321 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		41B7A60D2FD782290010302B /* Ajwa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ajwa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41B7A6102FD782290010302B /* AjwaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjwaApp.swift; sourceTree = "<group>"; };
 		41B7A6162FD7822B0010302B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -125,6 +149,7 @@
 		41C084C62FDAC65000179BE5 /* FavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
 		41C084C82FDAD31800179BE5 /* HourlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyView.swift; sourceTree = "<group>"; };
 		41C084CA2FDAD6BA00179BE5 /* HourRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourRowView.swift; sourceTree = "<group>"; };
+		41E4F5362FDB32E6008C5E19 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41B4FBBF2FDB439B007D4321 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,11 +172,46 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		41B4FBBD2FDB4339007D4321 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		41B4FBC02FDB4E83007D4321 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				4198135B2FDAE2D900559938 /* ThemeManager.swift */,
+				4198135D2FDAE32B00559938 /* ThemedBackgroundModifier.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		41B4FBC12FDB4E96007D4321 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				41B4FBC22FDB4EBC007D4321 /* WeatherModelMapper.swift */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		41B4FBCC2FDB4FEB007D4321 /* EndPoints */ = {
+			isa = PBXGroup;
+			children = (
+				41B4FBC62FDB4F70007D4321 /* EndPoint.swift */,
+				41B4FBC82FDB4FC2007D4321 /* WeatherSearchEndPoint.swift */,
+				41B4FBCA2FDB4FCD007D4321 /* ForeCastWeatherEndPoint.swift */,
+			);
+			path = EndPoints;
+			sourceTree = "<group>";
+		};
 		41B7A6042FD782290010302B = {
 			isa = PBXGroup;
 			children = (
 				41B7A60F2FD782290010302B /* Ajwa */,
 				41B7A60E2FD782290010302B /* Products */,
+				41B4FBBD2FDB4339007D4321 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -165,17 +226,15 @@
 		41B7A60F2FD782290010302B /* Ajwa */ = {
 			isa = PBXGroup;
 			children = (
-				419813612FDAFE7300559938 /* Views */,
-				41BC71552FD8E7370065F621 /* Info.plist */,
-				41BC71522FD8E4770065F621 /* Services */,
-				41BC71492FD8E33E0065F621 /* Model */,
-				41BC71192FD87F580065F621 /* Core */,
 				41BC71182FD87F500065F621 /* App */,
+				41BC71492FD8E33E0065F621 /* Model */,
+				419813612FDAFE7300559938 /* Views */,
+				41BC71522FD8E4770065F621 /* Services */,
+				41BC71192FD87F580065F621 /* Core */,
 				41BC711A2FD87FA30065F621 /* Modules */,
-				41B7A6162FD7822B0010302B /* Assets.xcassets */,
 				41B7A6182FD7822B0010302B /* Preview Content */,
-				41B7A6202FD782950010302B /* Config.xcconfig */,
-				41BC71562FD8E78F0065F621 /* Config.swift */,
+				41B7A6162FD7822B0010302B /* Assets.xcassets */,
+				41BC71552FD8E7370065F621 /* Info.plist */,
 			);
 			path = Ajwa;
 			sourceTree = "<group>";
@@ -192,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				41BA50A82FDA0364001A4EB2 /* SearchRemoteDataSource.swift */,
+				41B4FBD52FDB51B1007D4321 /* SearchRemoteDataSourceProtocol.swift */,
 			);
 			name = DataSources;
 			sourceTree = "<group>";
@@ -200,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				41BA50AC2FDA03F9001A4EB2 /* SearchRepositiory.swift */,
+				41B4FBD32FDB5189007D4321 /* SearchRepositoryProtocol.swift */,
 			);
 			name = Repository;
 			sourceTree = "<group>";
@@ -207,6 +268,8 @@
 		41BC71182FD87F500065F621 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				41B7A6202FD782950010302B /* Config.xcconfig */,
+				41BC71562FD8E78F0065F621 /* Config.swift */,
 				41B7A6102FD782290010302B /* AjwaApp.swift */,
 			);
 			path = App;
@@ -242,6 +305,8 @@
 			isa = PBXGroup;
 			children = (
 				41A763CB2FD7948900AB91C8 /* Launch Screen.storyboard */,
+				41E4F5362FDB32E6008C5E19 /* SplashView.swift */,
+				41B4FBD72FDB523A007D4321 /* LottieView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -316,10 +381,9 @@
 		41BC71352FD8CA8A0065F621 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				41B4FBC02FDB4E83007D4321 /* Theme */,
 				41BC716A2FD8F36C0065F621 /* Helpers */,
 				41BC71362FD8CA9B0065F621 /* Extensions */,
-				4198135B2FDAE2D900559938 /* ThemeManager.swift */,
-				4198135D2FDAE32B00559938 /* ThemedBackgroundModifier.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -344,8 +408,8 @@
 		41BC713E2FD8D0F90065F621 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				41BA50AB2FDA03DE001A4EB2 /* Repository */,
 				41BA50AA2FDA0367001A4EB2 /* DataSources */,
+				41BA50AB2FDA03DE001A4EB2 /* Repository */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -388,6 +452,7 @@
 		41BC71492FD8E33E0065F621 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				41B4FBC12FDB4E96007D4321 /* Mapper */,
 				41BC714A2FD8E34A0065F621 /* WeatherResponse.swift */,
 				41BC714C2FD8E3820065F621 /* Location.swift */,
 				41BC714E2FD8E42B0065F621 /* CurrentWeather.swift */,
@@ -408,6 +473,8 @@
 		41BC71522FD8E4770065F621 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				41B4FBCC2FDB4FEB007D4321 /* EndPoints */,
+				41B4FBC42FDB4F49007D4321 /* WeatherServiceProtocol.swift */,
 				41BC71532FD8E48D0065F621 /* WeatherApiService.swift */,
 				41BA50A22FD9E188001A4EB2 /* LocationService.swift */,
 				41BA50B92FDA32BC001A4EB2 /* WeatherLocalStorageServiceProtocol.swift */,
@@ -420,8 +487,10 @@
 		41BC71582FD8EA720065F621 /* Data Sources */ = {
 			isa = PBXGroup;
 			children = (
+				41B4FBCD2FDB5049007D4321 /* HomeRemoteDataSourceProtocol .swift */,
 				41BC71592FD8EA880065F621 /* HomeRemoteDataSource.swift */,
 				416270BE2FDA34DC008650FE /* HomeLocalDataSource.swift */,
+				41B4FBCF2FDB507F007D4321 /* HomeLocalDataSourceProtocol.swift */,
 			);
 			path = "Data Sources";
 			sourceTree = "<group>";
@@ -429,6 +498,7 @@
 		41BC715B2FD8EB220065F621 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				41B4FBD12FDB50CA007D4321 /* HomeRepoProtocol.swift */,
 				41BC715C2FD8EB400065F621 /* HomeRepository.swift */,
 			);
 			path = Repository;
@@ -459,6 +529,9 @@
 			dependencies = (
 			);
 			name = Ajwa;
+			packageProductDependencies = (
+				41B4FBBE2FDB439B007D4321 /* Lottie */,
+			);
 			productName = Ajwa;
 			productReference = 41B7A60D2FD782290010302B /* Ajwa.app */;
 			productType = "com.apple.product-type.application";
@@ -487,6 +560,9 @@
 				Base,
 			);
 			mainGroup = 41B7A6042FD782290010302B;
+			packageReferences = (
+				41B4FBBC2FDB429B007D4321 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 41B7A60E2FD782290010302B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -520,6 +596,7 @@
 				4198135E2FDAE32B00559938 /* ThemedBackgroundModifier.swift in Sources */,
 				41BA50B82FDA3213001A4EB2 /* FavouriteLocationWeather.swift in Sources */,
 				41BC712C2FD8A8DF0065F621 /* VisibilityView.swift in Sources */,
+				41B4FBC32FDB4EBC007D4321 /* WeatherModelMapper.swift in Sources */,
 				41BC71482FD8D5040065F621 /* CityWeatherSearchView.swift in Sources */,
 				41BA50AF2FDA042A001A4EB2 /* SearchViewModel.swift in Sources */,
 				4198135C2FDAE2D900559938 /* ThemeManager.swift in Sources */,
@@ -532,6 +609,7 @@
 				41BC71342FD8BD550065F621 /* DaysForecastView.swift in Sources */,
 				41BA50A72FDA0257001A4EB2 /* WeatherSearchResult.swift in Sources */,
 				41BC715D2FD8EB400065F621 /* HomeRepository.swift in Sources */,
+				41B4FBC52FDB4F49007D4321 /* WeatherServiceProtocol.swift in Sources */,
 				41BC714D2FD8E3820065F621 /* Location.swift in Sources */,
 				41BC715A2FD8EA880065F621 /* HomeRemoteDataSource.swift in Sources */,
 				41C084CB2FDAD6BA00179BE5 /* HourRowView.swift in Sources */,
@@ -542,21 +620,29 @@
 				41BC71512FD8E4420065F621 /* WeatherCondition.swift in Sources */,
 				41BA50B42FDA2879001A4EB2 /* DetailsViewModel.swift in Sources */,
 				41BC71302FD8AD380065F621 /* UVIndexView.swift in Sources */,
+				41B4FBD62FDB51B1007D4321 /* SearchRemoteDataSourceProtocol.swift in Sources */,
+				41B4FBC72FDB4F70007D4321 /* EndPoint.swift in Sources */,
 				41BC71692FD8F0A10065F621 /* HourWeather.swift in Sources */,
+				41B4FBD02FDB507F007D4321 /* HomeLocalDataSourceProtocol.swift in Sources */,
 				41BC71542FD8E48D0065F621 /* WeatherApiService.swift in Sources */,
 				41BC71632FD8F0700065F621 /* ForecastDay.swift in Sources */,
 				41BC71322FD8BC7F0065F621 /* TemperatureRangeIndicatorView.swift in Sources */,
 				41BA50BC2FDA32D2001A4EB2 /* WeatherLocalStorageService.swift in Sources */,
 				41BC716C2FD8F37B0065F621 /* Helper.swift in Sources */,
 				41BC712E2FD8AB7D0065F621 /* UVIndexIndicatorView.swift in Sources */,
+				41E4F5372FDB32E6008C5E19 /* SplashView.swift in Sources */,
+				41B4FBC92FDB4FC2007D4321 /* WeatherSearchEndPoint.swift in Sources */,
 				41BC712A2FD8A6070065F621 /* ConditionsView.swift in Sources */,
 				41BC71232FD884820065F621 /* HomeView.swift in Sources */,
 				41BC71432FD8D1260065F621 /* SearchView.swift in Sources */,
 				419813632FDAFE7E00559938 /* NetworkBanner.swift in Sources */,
 				41BA50AD2FDA03F9001A4EB2 /* SearchRepositiory.swift in Sources */,
+				41B4FBD82FDB523A007D4321 /* LottieView.swift in Sources */,
 				41BA50BA2FDA32BC001A4EB2 /* WeatherLocalStorageServiceProtocol.swift in Sources */,
 				41BC71652FD8F0800065F621 /* DaySummary.swift in Sources */,
+				41B4FBD22FDB50CA007D4321 /* HomeRepoProtocol.swift in Sources */,
 				41BC713C2FD8CD480065F621 /* MainWeatherView.swift in Sources */,
+				41B4FBD42FDB5189007D4321 /* SearchRepositoryProtocol.swift in Sources */,
 				41BC71262FD89ED10065F621 /* HourlyForecastView.swift in Sources */,
 				41BC715F2FD8EB8E0065F621 /* HomeViewModel.swift in Sources */,
 				41C084C72FDAC65000179BE5 /* FavouritesViewModel.swift in Sources */,
@@ -565,8 +651,10 @@
 				41BA50A32FD9E188001A4EB2 /* LocationService.swift in Sources */,
 				41BC71572FD8E78F0065F621 /* Config.swift in Sources */,
 				41BC71282FD8A3610065F621 /* PreciptionView.swift in Sources */,
+				41B4FBCE2FDB5049007D4321 /* HomeRemoteDataSourceProtocol .swift in Sources */,
 				41BC714B2FD8E34B0065F621 /* WeatherResponse.swift in Sources */,
 				41BA509F2FD9CB19001A4EB2 /* PerciptationItemView.swift in Sources */,
+				41B4FBCB2FDB4FCD007D4321 /* ForeCastWeatherEndPoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -780,6 +868,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		41B4FBBC2FDB429B007D4321 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = exactVersion;
+				version = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		41B4FBBE2FDB439B007D4321 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41B4FBBC2FDB429B007D4321 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 41B7A6052FD782290010302B /* Project object */;
 }

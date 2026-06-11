@@ -15,12 +15,14 @@ class DetailsViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var errorMessage: String?
     @Published var isFavourite = false
+    @Published var showRemoveAlert = false
 
-    private var repo: HomeRepository?
+
+    private var repo: HomeRepoProtocol?
 
     init() {}
 
-    func setup(repo: HomeRepository) {
+    func setup(repo: HomeRepoProtocol) {
         guard self.repo == nil else { return }
         self.repo = repo
     }

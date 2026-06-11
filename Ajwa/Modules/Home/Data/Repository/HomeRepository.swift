@@ -8,11 +8,14 @@
 import Foundation
 import CoreLocation
 
-class HomeRepository {
-    private let remoteDataSource : HomeRemoteDataSource
-    private let localDataSource : HomeLocalDataSource
+class HomeRepository : HomeRepoProtocol {
+    private let remoteDataSource: HomeRemoteDataSourceProtocol
+    private let localDataSource: HomeLocalDataSourceProtocol
     
-    init(remoteDataSource: HomeRemoteDataSource , localDataSource: HomeLocalDataSource) {
+    init(
+        remoteDataSource: HomeRemoteDataSourceProtocol,
+        localDataSource: HomeLocalDataSourceProtocol
+    ) {
         self.remoteDataSource = remoteDataSource
         self.localDataSource = localDataSource
     }

@@ -12,7 +12,8 @@ struct HomeView: View {
 
     @Environment(\.modelContext) private var modelContext
     @StateObject private var viewModel = HomeViewModel()
-
+    
+    
     private let theme = ThemeManager.shared.current
 
     var body: some View {
@@ -28,18 +29,26 @@ struct HomeView: View {
                         .multilineTextAlignment(.center)
                         .padding()
 
-                } else if let weather = viewModel.weather {
-                    ScrollView {
-                        MainWeatherView(weather: weather) 
-                        HourlyForecastView(hours: weather.forecast.forecastday[0].hour)
-                        DaysForecastView(days: weather.forecast.forecastday)
-                        PreciptionView(weather: weather)
-                        ConditionsView(weather: weather)
-                        VisibilityView(weather: weather)
-                        UVIndexView(weather: weather)
+                }  else if viewModel.locationDeniedMessage != nil {
+                    
+                    VStack(alignment: .leading, spacing: 8) {
+                        
+                        Text("Location Disabled")
+                            .font(.headline)
+                        
+                        Text("Enable location from Settings to get weather updates.")
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
+                        
+                        Button("Open Settings") {
+                            viewModel.openSettings()
+                        }
+                        .font(.caption.bold())
                     }
-                    .scrollIndicators(.hidden)
                     .padding()
+                    .background(.ultraThinMaterial)
+                    .cornerRadius(14)
+                    .padding(.horizontal)
                 } else {
                     ProgressView("Getting location...")
                         .tint(theme.contentColor)
@@ -83,7 +92,7 @@ struct HomeView: View {
                             weatherService: WeatherApiService()
                         ),
                         localDataSource: HomeLocalDataSource(
-                            localStorageService: WeatherLocalStorageService(context: modelContext)
+                            storageService: WeatherLocalStorageService(context:modelContext)
                         )
                     )
                 )
@@ -93,7 +102,10 @@ struct HomeView: View {
                    isPresented: $viewModel.showPermissionAlert) {
                 Button("Open Settings") { viewModel.openSettings() }
                 Button("Retry") { viewModel.getUserLocation() }
-                Button("Cancel", role: .cancel) { }
+                Button("Cancel", role: .cancel) {
+                    viewModel.showPermissionAlert = false
+                    viewModel.locationDeniedMessage = "Location is denied. Please enable it from Settings."
+                }
             } message: {
                 Text("Please enable location access in Settings to continue using the app.")
             }

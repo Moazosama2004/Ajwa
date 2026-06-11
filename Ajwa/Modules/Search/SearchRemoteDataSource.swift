@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SearchRemoteDataSource {
+class SearchRemoteDataSource : SearchRemoteDataSourceProtocol {
     private let weatherService : WeatherApiService
     
     init(weatherService: WeatherApiService) {

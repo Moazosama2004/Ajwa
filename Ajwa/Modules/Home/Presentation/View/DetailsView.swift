@@ -4,31 +4,32 @@
 //
 //  Created by Moaz on 10/06/2026.
 //
-
 import SwiftUI
 
 struct DetailsView: View {
     @Environment(\.modelContext) private var modelContext
     let city: WeatherSearchResult
- 
+
     @StateObject private var viewModel = DetailsViewModel()
- 
+    private let theme = ThemeManager.shared.current
+
     var body: some View {
         ZStack {
             if viewModel.isLoading {
                 ProgressView()
- 
+                    .tint(theme.contentColor)
+
             } else if let error = viewModel.errorMessage {
                 Text(error)
                     .foregroundStyle(.red)
                     .multilineTextAlignment(.center)
                     .padding()
- 
+
             } else if let weather = viewModel.weather {
                 ScrollView {
-                    VStack(spacing: 16) {
+                    VStack(spacing: 12) {
                         DetailHeroView(weather: weather)
-                            .padding(.top,10)
+                            .padding(.top, 10)
                         HourlyForecastView(hours: weather.forecast.forecastday[0].hour)
                         DaysForecastView(days: weather.forecast.forecastday)
                         PreciptionView(weather: weather)
@@ -48,25 +49,39 @@ struct DetailsView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    viewModel.toggleFavourite()
+                    if viewModel.isFavourite {
+                        viewModel.showRemoveAlert = true
+                    } else {
+                        viewModel.toggleFavourite()
+                    }
                 } label: {
                     Image(systemName: viewModel.isFavourite ? "heart.fill" : "heart")
-                        .foregroundStyle(viewModel.isFavourite ? .red : .primary)
+                        .foregroundStyle(viewModel.isFavourite ? .red : theme.contentColor)
+                        .symbolEffect(.bounce, value: viewModel.isFavourite)
+                        .animation(.snappy(), value: viewModel.isFavourite)
                 }
             }
         }
+        .alert("Remove Favourite", isPresented: $viewModel.showRemoveAlert) {
+            Button("Remove", role: .destructive) {
+                viewModel.toggleFavourite()
+            }
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text("Are you sure you want to remove \(city.name) from your favourites?")
+        }
         .onAppear {
-                    viewModel.setup(
-                        repo: HomeRepository(
-                            remoteDataSource: HomeRemoteDataSource(
-                                weatherService: WeatherApiService()
-                            ),
-                            localDataSource: HomeLocalDataSource(
-                                localStorageService: WeatherLocalStorageService(context: modelContext)
-                            )
-                        )
+            viewModel.setup(
+                repo: HomeRepository(
+                    remoteDataSource: HomeRemoteDataSource(
+                        weatherService: WeatherApiService()
+                    ),
+                    localDataSource: HomeLocalDataSource(
+                        storageService: WeatherLocalStorageService(context:modelContext)
                     )
-                }
+                )
+            )
+        }
         .task {
             await viewModel.loadWeather(from: city)
         }

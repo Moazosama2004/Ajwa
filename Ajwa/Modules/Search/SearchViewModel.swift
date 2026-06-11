@@ -15,10 +15,10 @@ class SearchViewModel: ObservableObject {
     @Published var results: [WeatherSearchResult] = []
     @Published var state: SearchState = .idle
     
-    private let repo: SearchRepositiory
+    private let repo: SearchRepositoryProtocol
     private var cancellables = Set<AnyCancellable>()
     
-    init(repo: SearchRepositiory) {
+    init(repo: SearchRepositoryProtocol) {
         self.repo = repo
         setupSearch()
     }
@@ -33,6 +33,12 @@ class SearchViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellables)
+    }
+    
+    func clearSearch() {
+        searchQuery = ""
+        results = []
+        state = .idle
     }
     
     private func performSearch(query: String) async {

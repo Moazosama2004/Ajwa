@@ -46,13 +46,22 @@
                                 )
                             
                         case .success:
-                            ForEach(viewModel.results) { city in
-                                NavigationLink {
-                                    DetailsView(city: city)
-                                } label: {
-                                    CityWeatherSearchView(city: city)
+                            if viewModel.results.isEmpty {
+                                EmptyStateView(
+                                    icon: "location.slash",
+                                    title: "No cities found",
+                                    message: "Try searching with another city name"
+                                )
+                            } else {
+                                ForEach(viewModel.results) { city in
+                                    NavigationLink {
+                                        DetailsView(city: city)
+                                    } label: {
+                                        CityWeatherSearchView(city: city)
+                                    }
                                 }
                             }
+                            
                             
                         case .empty:
                             EmptyStateView(
@@ -77,9 +86,8 @@
                         }
                     }
                     .padding()
-                }  .scrollIndicators(.hidden)
-                  
-                  
+                    }  
+                    .scrollIndicators(.hidden)
                 }
                 
             }

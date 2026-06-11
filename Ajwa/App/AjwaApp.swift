@@ -13,7 +13,7 @@ struct AjwaApp: App {
     @StateObject private var networkMonitor = NetworkMonitor.shared
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            SplashView()
         }.modelContainer(for: [
             MyLocationWeather.self,
             FavouriteLocationWeather.self,
