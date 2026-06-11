@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		416270BF2FDA34DC008650FE /* HomeLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416270BE2FDA34DC008650FE /* HomeLocalDataSource.swift */; };
 		416270C12FDA3D16008650FE /* ForecastDayEntity .swift in Sources */ = {isa = PBXBuildFile; fileRef = 416270C02FDA3D16008650FE /* ForecastDayEntity .swift */; };
+		4198135C2FDAE2D900559938 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198135B2FDAE2D900559938 /* ThemeManager.swift */; };
+		4198135E2FDAE32B00559938 /* ThemedBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198135D2FDAE32B00559938 /* ThemedBackgroundModifier.swift */; };
 		41A763CC2FD7948900AB91C8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41A763CB2FD7948900AB91C8 /* Launch Screen.storyboard */; };
 		41B7A6112FD782290010302B /* AjwaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B7A6102FD782290010302B /* AjwaApp.swift */; };
 		41B7A6172FD7822B0010302B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41B7A6162FD7822B0010302B /* Assets.xcassets */; };
@@ -57,11 +59,15 @@
 		41BC716C2FD8F37B0065F621 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC716B2FD8F37B0065F621 /* Helper.swift */; };
 		41C084C52FDAC5B600179BE5 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C084C42FDAC5B600179BE5 /* FavouritesView.swift */; };
 		41C084C72FDAC65000179BE5 /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C084C62FDAC65000179BE5 /* FavouritesViewModel.swift */; };
+		41C084C92FDAD31800179BE5 /* HourlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C084C82FDAD31800179BE5 /* HourlyView.swift */; };
+		41C084CB2FDAD6BA00179BE5 /* HourRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C084CA2FDAD6BA00179BE5 /* HourRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		416270BE2FDA34DC008650FE /* HomeLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLocalDataSource.swift; sourceTree = "<group>"; };
 		416270C02FDA3D16008650FE /* ForecastDayEntity .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ForecastDayEntity .swift"; sourceTree = "<group>"; };
+		4198135B2FDAE2D900559938 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		4198135D2FDAE32B00559938 /* ThemedBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemedBackgroundModifier.swift; sourceTree = "<group>"; };
 		41A763CB2FD7948900AB91C8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		41B7A60D2FD782290010302B /* Ajwa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ajwa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41B7A6102FD782290010302B /* AjwaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjwaApp.swift; sourceTree = "<group>"; };
@@ -113,6 +119,8 @@
 		41BC716B2FD8F37B0065F621 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		41C084C42FDAC5B600179BE5 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
 		41C084C62FDAC65000179BE5 /* FavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
+		41C084C82FDAD31800179BE5 /* HourlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyView.swift; sourceTree = "<group>"; };
+		41C084CA2FDAD6BA00179BE5 /* HourRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +277,7 @@
 				41BC71222FD884820065F621 /* HomeView.swift */,
 				41BA50B12FDA24A1001A4EB2 /* DetailsView.swift */,
 				41C084C42FDAC5B600179BE5 /* FavouritesView.swift */,
+				41C084C82FDAD31800179BE5 /* HourlyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -286,6 +295,7 @@
 				41BC71332FD8BD550065F621 /* DaysForecastView.swift */,
 				41BC713B2FD8CD480065F621 /* MainWeatherView.swift */,
 				41BA509E2FD9CB19001A4EB2 /* PerciptationItemView.swift */,
+				41C084CA2FDAD6BA00179BE5 /* HourRowView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -295,6 +305,8 @@
 			children = (
 				41BC716A2FD8F36C0065F621 /* Helpers */,
 				41BC71362FD8CA9B0065F621 /* Extensions */,
+				4198135B2FDAE2D900559938 /* ThemeManager.swift */,
+				4198135D2FDAE32B00559938 /* ThemedBackgroundModifier.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -491,12 +503,15 @@
 				41BC71462FD8D24C0065F621 /* CustomSearchBar.swift in Sources */,
 				41BA50B22FDA24A1001A4EB2 /* DetailsView.swift in Sources */,
 				41B7A6112FD782290010302B /* AjwaApp.swift in Sources */,
+				4198135E2FDAE32B00559938 /* ThemedBackgroundModifier.swift in Sources */,
 				41BA50B82FDA3213001A4EB2 /* FavouriteLocationWeather.swift in Sources */,
 				41BC712C2FD8A8DF0065F621 /* VisibilityView.swift in Sources */,
 				41BC71482FD8D5040065F621 /* CityWeatherSearchView.swift in Sources */,
 				41BA50AF2FDA042A001A4EB2 /* SearchViewModel.swift in Sources */,
+				4198135C2FDAE2D900559938 /* ThemeManager.swift in Sources */,
 				416270BF2FDA34DC008650FE /* HomeLocalDataSource.swift in Sources */,
 				41BA50A12FD9DD3F001A4EB2 /* WeatherAsset.swift in Sources */,
+				41C084C92FDAD31800179BE5 /* HourlyView.swift in Sources */,
 				41BC714F2FD8E42B0065F621 /* CurrentWeather.swift in Sources */,
 				41BA50A92FDA0364001A4EB2 /* SearchRemoteDataSource.swift in Sources */,
 				41BC71342FD8BD550065F621 /* DaysForecastView.swift in Sources */,
@@ -504,6 +519,7 @@
 				41BC715D2FD8EB400065F621 /* HomeRepository.swift in Sources */,
 				41BC714D2FD8E3820065F621 /* Location.swift in Sources */,
 				41BC715A2FD8EA880065F621 /* HomeRemoteDataSource.swift in Sources */,
+				41C084CB2FDAD6BA00179BE5 /* HourRowView.swift in Sources */,
 				41C084C52FDAC5B600179BE5 /* FavouritesView.swift in Sources */,
 				416270C12FDA3D16008650FE /* ForecastDayEntity .swift in Sources */,
 				41BC71672FD8F08E0065F621 /* Astro.swift in Sources */,

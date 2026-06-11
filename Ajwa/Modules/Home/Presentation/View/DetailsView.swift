@@ -15,9 +15,6 @@ struct DetailsView: View {
  
     var body: some View {
         ZStack {
-            Color(.appBackground)
-                .ignoresSafeArea()
- 
             if viewModel.isLoading {
                 ProgressView()
  
@@ -46,6 +43,7 @@ struct DetailsView: View {
         }
         .navigationTitle(city.name)
         .navigationBarTitleDisplayMode(.inline)
+        .themedBackground()
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
