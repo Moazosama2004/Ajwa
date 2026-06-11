@@ -28,6 +28,7 @@ struct DetailsView: View {
                 ScrollView {
                     VStack(spacing: 16) {
                         DetailHeroView(weather: weather)
+                            .padding(.top,10)
                         HourlyForecastView(hours: weather.forecast.forecastday[0].hour)
                         DaysForecastView(days: weather.forecast.forecastday)
                         PreciptionView(weather: weather)
@@ -72,20 +73,12 @@ struct DetailsView: View {
     }
 }
 
-// MARK: - Hero Section
-
-//
-//  DetailHeroView.swift
-//  Ajwa
-//
-//  Created by Moaz on 10/06/2026.
-//
-import SwiftUI
 
 // MARK: - Hero Section
 
 struct DetailHeroView: View {
-
+    
+    private let theme = ThemeManager.shared.current
     let weather: WeatherResponse
 
     var body: some View {
@@ -127,7 +120,19 @@ struct DetailHeroView: View {
             .foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity)
-        .padding(.top, 16)
+        .padding()
+        .background {
+            RoundedRectangle(cornerRadius: 24)
+                .fill(theme.contentColor == .white
+                      ? Color.white.opacity(0.15)
+                      : Color.black.opacity(0.08)
+                )
+                .overlay {
+                    RoundedRectangle(cornerRadius: 24)
+                        .stroke(theme.contentColor.opacity(0.2), lineWidth: 1)
+                }
+        }
+        
     }
 
     private func formattedDate(from localtime: String) -> String {

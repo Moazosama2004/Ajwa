@@ -30,15 +30,7 @@ struct HomeView: View {
 
                 } else if let weather = viewModel.weather {
                     ScrollView {
-                        ScrollView(.horizontal) {
-                            HStack {
-                                ForEach(1..<5) { _ in
-                                    MainWeatherView(weather: weather)
-                                }
-                            }
-                        }
-                        .scrollIndicators(.hidden)
-
+                        MainWeatherView(weather: weather) 
                         HourlyForecastView(hours: weather.forecast.forecastday[0].hour)
                         DaysForecastView(days: weather.forecast.forecastday)
                         PreciptionView(weather: weather)
@@ -48,7 +40,6 @@ struct HomeView: View {
                     }
                     .scrollIndicators(.hidden)
                     .padding()
-
                 } else {
                     ProgressView("Getting location...")
                         .tint(theme.contentColor)
