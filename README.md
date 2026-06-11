@@ -98,19 +98,19 @@ open Ajwa.xcodeproj
 
 ### Add your WeatherAPI key securely
 Preferred: use the provided `Config.xcconfig` file.
-1. Open `Ajwa/App/Config.xcconfig` and add a key (do NOT commit real keys):
+1. Create `Config.xcconfig` and add a key (do NOT commit real keys):
 ```
 WEATHERAPI_KEY = your_real_api_key_here
 ```
 2. Ensure the target build settings include this xcconfig (the project already includes a `Config.xcconfig`).
 
-Alternative (local dev only): add a `Secrets.swift` file (ignored by Git) with:
+Alternative (local dev only): add a `Config.swift` file (ignored by Git) with:
 ```swift
-enum Secrets {
+enum Config {
   static let weatherAPIKey = "your_real_api_key_here"
 }
 ```
-Make sure `Secrets.swift` is listed in `.gitignore` to avoid leaking credentials.
+Make sure `Config.swift` is listed in `.gitignore` to avoid leaking credentials.
 
 ### Build & Run
 - Select a simulator or physical device in Xcode and run (Cmd+R).
